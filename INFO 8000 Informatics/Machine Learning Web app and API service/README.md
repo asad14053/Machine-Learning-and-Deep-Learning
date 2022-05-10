@@ -1,4 +1,4 @@
-# final-project-jasia-zaman-info8000-finalproject
+
 # Project Name: CryptoFreak
 ## Your Most Trusted Crypto Currency Consultant and API service provider.
 > An AI based Crypto Consultancy services web app with Free inbuilt API
