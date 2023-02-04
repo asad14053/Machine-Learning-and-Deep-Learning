@@ -1,0 +1,7 @@
+# This line should be skipped
+1
+# This line should be skipped
+2
+# This line should be skipped
+3 # See if you can get your program to ignore this as well (print only 3)
+

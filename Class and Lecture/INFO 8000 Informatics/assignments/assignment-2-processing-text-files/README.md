@@ -1,0 +1,5 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6935522&assignment_repo_type=AssignmentRepo)
+# Assignment 2
+This git repository contains starter code for each problem (p1.py, p2.py,...etc).  Running each program should produce the desired behavior.  You will find the instructions for each problem in a comment at the top of the file, and potentially additional comments within.  You should not delete these comments.  You should not change the names of the files.  
+
+Your submission repository (at least the tip of the main branch) should only contain the exact files contained within this template.  You should not create any additional files beyond those specified.  
