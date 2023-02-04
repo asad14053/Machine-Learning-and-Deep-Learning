@@ -1,0 +1,3 @@
+Week 3 - Talk about Data in Machine Learning - All slides
+Weeks 5 and 6 - Duda Pattern Recognition - All 3 Deck of slides (3 uploaded presentations) --> Bayesian Decision Rule, Risks, Cost etc.
+Week 7 - ML / LR / LG - All deck of slides: model, cost function, formulas.

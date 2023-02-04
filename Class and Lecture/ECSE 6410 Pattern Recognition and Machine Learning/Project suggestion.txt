@@ -1,0 +1,55 @@
+Good job on Wed and Friday. There is room for improvement. Here are some general suggestions for all students.
+
+Please check my expected structure in terms of the sequence of slides for the project: Intro/Problem description; Methodology; Experiments; Results; Discussion and Conclusions (here you can include your issues); Next Steps. Online you can also find a lot of help on how to present research work --> you did good on your presentations
+You can follow the same sequence of slides for your homework--> you did good on your presentations
+Make sure you add your code to the Google Drive.
+Hopefully, in your final submitted work, you can explain:
+The original dataset you used;
+The new dataset you generated for your homework and project; number of samples per class; image resolution (probably variable in the beginning and then maybe you resized all images to the same resolution to insert into your ML algorithm?)
+The way you processed this new dataset (e.g. detection or cats and dogs manually or automatically to remove the background; same for the screws)
+Show image examples of cats and dogs; same for the classes you are working on to classify
+The experiments you performed: e.g. originally all algorithms are tested via the Class Learner App / Python; determined the top 2 algorithms that perform better; focus on those algorithms to perform more experiments and maybe determine the optimum parameters for those algorithms to increase accuracy. Cross validation.--> you did good on your presentations
+Show your confusion matrices, as you did --> discuss the images that were not correctly classified; maybe show them also in your slides and WORD reports.
+Discussion/ Next steps: what will you do next to improve the performance. What can you try to do, e.g. use more data (data augmentation) for training --> e.g. go from 100 to 1000 per class (it is really simple to do; its automated in Matlab too.
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+All, my input may help you.
+
+
+Please check my expected structure in terms of the sequence of slides for the project:
+Intro/Problem description.
+Methodology (the algorithmic approach of e.g., 1 or 2 of your best models);
+Experiments.
+Results.
+Discussion and Conclusions (here you can include your issues);
+Next Steps.
+Online you can also find a lot of help on how to present research work 
+You can follow the same sequence of slides for your homework too; not only for your project
+Make sure you add your code to the Google Drive. I encourage you show code as Dylan and some other students did. You do not have to show ALL you code (how it works step by step) but some code is good to show.
+Now in your presentations and in your final presentation too, you need to explain:
+The original dataset you used.
+The new dataset you generated for your homework and project; number of samples per class; image resolution (probably variable in the beginning and then maybe you resized all images to the same resolution to insert into your ML algorithm?)
+The way you processed this new dataset (e.g., detection or cats and dogs manually or automatically to remove the background, same for your project)
+Show image examples of cats and dogs; same for the classes you are working on to classify; If you have 1D samples we need to show examples too.
+The experiments you performed:
+originally all algorithms are tested via the Class Learner App / Python;
+how you e.g. determined the top 2 algorithms that perform better;
+focus on those 2 algorithms to perform more experiments and maybe determine the optimum parameters for those algorithms to increase accuracy.
+Cross validation
+Show your confusion matrices; discuss the images or 1D samples that were not correctly classified; maybe show them also in your slides and WORD reports.
+Discussion/ Next steps:
+What will you do next to improve the performance.
+What can you try to do? e.g., use more data (data augmentation) for training --> e.g., go from 100 to 1000 per class (it is really simple to do, its automated in MATLAB)
+Make sure you time yourself.
+10 min is 10 min. I am happy that you continue after 10min is up, but the other students may not like that. I take the responsibility that I did not stop you. But some of you may not have liked that.
+10 min, we mean 10 min. Not 6 min for both your homework and your project. This does not look good
+Finally, please keep the presentation professional. Avoid silly / funny comments (if possible; we do not have time :-) ) and stick to your work only! Show how hard you worked.
+
+I hope my input helps.
