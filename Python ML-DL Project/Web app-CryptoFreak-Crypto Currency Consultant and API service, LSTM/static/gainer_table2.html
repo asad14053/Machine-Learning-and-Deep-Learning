@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		Most Profitable Coin
+	</title>
+	
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>
+</head>
+
+<style>
+    .div-1 {
+        background-color: #000000;
+        color: white;
+    }
+</style>
+
+<body style = "text-align:center;" id = "body">
+	
+	<div class = "div-1"><h1 style = "color:rgb(255, 255, 255);">
+		Want to know last 24 Hrs Crypto Coin trends in each price segments instantly??
+	</h1></div>
+    <div id="current_date" style = "color: white; background-color: black;"></div>
+        <script>
+        document.getElementById("current_date").innerHTML = Date();
+        </script>
+	
+	<p id = "GFG_UP" style =
+		"font-size: 15px; font-weight: bold;">
+	</p>
+    <div style = "background-color: teal;"><h1> Coin Details </h1></div>
+	<button class = "div-1" onclick = "constructTable('#table')">
+		Click Here
+	</button>
+	
+	<br><br>
+	
+	<table align = "center"
+			id="table" border="1">
+	</table>
+	
+	<script>
+		var el_up = document.getElementById("GFG_UP");
+		var list = [
+			{ "Coin Description": ""}
+		];
+		var apiUrl = 'https://cryptofreak.mooo.com/each_price_change_catagory';
+        fetch(apiUrl).then(response => {
+            return response.json();
+        }).then(data => {
+        // Work with JSON data here
+        list.push(data);
+        console.log(data);
+        }).catch(err => {
+        // Do something for an error here
+        });
+
+
+		// el_up.innerHTML = "Click on the button to create "
+		// 		+ "the table from the JSON data.<br><br>"
+		// 		+ JSON.stringify(list[0]) + "<br>"
+		// 		+ JSON.stringify(list[1]) + "<br>"
+		// 		+ JSON.stringify(list[2]);
+			
+		function constructTable(selector) {
+			
+			// Getting the all column names
+			//var cols = Headers(list, selector);
+
+			// Traversing the JSON data
+			for (var i = 0; i < 2; i++) {
+				var row = $('<tr/>');
+				//for (var colIndex = 0; colIndex < 1; colIndex++)
+				//{
+					let val = list[i];
+					// If there is any key, which is matching
+					 //with the column name
+					//  if (val == '}' || val == ',') 
+                    //  {
+                    //     row.append($('<td/>').html(<br/>));
+                    //      //val = "";
+                    //      continue;
+                    // //     row.append($('<td/>').html(val));
+                    // // }
+                    let  val2 ='';
+                    
+                    for (var l =0; l<val.length; l++)
+                    {
+                            if (val[l] == '}' || val[l] == '{' || val[l] == '"')
+                            {val2=val2.concat(' '); 
+                            continue;
+                        }
+                        if(val[l] == ',')
+                        {val2=val2.concat('<br>');
+                        continue;
+                        }
+                        val2=val2.concat(val[l]);
+                    }
+                    // if(x==1) continue;
+                    let re = /( \d{3,} :)/g;
+                    let val3= val2.replace(re , ' ')
+					row.append($('<td/>').html(val3));
+	
+				//}
+				
+				// Adding each row to the table
+				$(selector).append(row);
+			}
+		}
+		
+		function Headers(list, selector) {
+			var columns = [];
+			var header = $('<tr/>');
+			for (var i = 0; i < 1; i++) {
+				var row = list[i];
+				
+				for (var k in row) {
+					if ($.inArray(k, columns) == -1) {
+						columns.push(k);
+						
+						// Creating the header
+						
+					}
+                    header.append($('<th/>').html(k));
+				}
+			}
+			
+			// Appending the header to the table
+			$(selector).append(header);
+				return columns;
+		}	
+	</script>
+</body>
+
+</html>
+
+
+
+
+
+<!-- <html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+<script>
+
+    $(function() {
+
+
+   var people = [];
+
+   $.getJSON('people.json', function(data) {
+       $.each(data.person, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" +
+           "<td>" + f.lastName + "</td>" + "<td>" + f.job + "</td>" + "<td>" + f.roll + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+</script>
+</head>
+
+<body>
+
+<div class="wrapper">
+<div class="profile">
+   <table id= "userdata" border="2">
+  <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>City</th>
+        </thead>
+      <tbody>
+
+       </tbody>
+   </table>
+
+</div>
+</div>
+
+</body>
+</html> -->

@@ -1,0 +1,11 @@
+https://www.kaggle.com/code/gireeshs/complete-guide-to-clustering-techniques/notebook
+https://www.kaggle.com/code/ryanholbrook/clustering-with-k-means
+https://www.kaggle.com/code/fazilbtopal/popular-unsupervised-clustering-algorithms
+https://www.kaggle.com/code/starlitlolith/train-and-evaluate-advanced-clustering-models-11/notebook
+https://www.kaggle.com/code/datacassio/credit-card-clustering-interpretation-of-clusters
+
+
+
+https://www.kaggle.com/code/dreamslab/eda-classification-and-clustering-diagnostic
+https://www.kaggle.com/code/yoghurtpatil/clustering-and-classification-on-student-data
+https://www.kaggle.com/code/pratik1120/penguin-dataset-eda-classification-and-clustering

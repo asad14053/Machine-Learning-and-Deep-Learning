@@ -1,0 +1,10 @@
+https://www.kaggle.com/code/kashyapgohil/pneumonia-detection-using-cnn
+https://www.kaggle.com/getting-started/173149
+https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+https://www.kaggle.com/code/therealcyberlord/pneumonia-detection-using-deep-learning
+https://www.kaggle.com/code/kashyapgohil/pneumonia-detection-using-cnn
+https://www.geeksforgeeks.org/pneumonia-detection-using-deep-learning/
+https://ieeexplore.ieee.org/document/8869364
+
+
+https://www.kaggle.com/code/therealcyberlord/pneumonia-detection-using-deep-learning/data
