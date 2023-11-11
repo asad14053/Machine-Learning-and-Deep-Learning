@@ -4,6 +4,7 @@
 > An AI based Crypto Consultancy services web app with Free inbuilt API
 
 > Live demo [_here_](https://cryptofreak.mooo.com/). <!-- If you have the project hosted somewhere, include the link here. -->
+> And, video presentation [_here_](https://github.com/asad14053/Machine-Learning-and-Deep-Learning/tree/main/Python%20ML-DL%20Project/Web%20app-CryptoFreak-Crypto%20Currency%20Consultant%20and%20API%20service%2C%20LSTM/Presentation)
 
 ## Table of Contents
 * [General Info](#general-information)
