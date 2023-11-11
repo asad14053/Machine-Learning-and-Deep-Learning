@@ -17,6 +17,11 @@ from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse 
 from fastapi.responses import StreamingResponse
 
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense
+
 # app = FastAPI(root_path="/myapp")
 
 # @app.get("/")
@@ -87,6 +92,87 @@ plt.savefig('files/pie.png')
 df2.to_csv("files/gainer_coin.csv")
 df4.to_csv("files/each_price_change_catagory.csv")
 
+############################################################# Deep Learning Prediction ######################################################
+# Reason for taking simple model: To save time when server is running
+# Improve latency and processing time for prediction of the data from LSTM model
+
+# Convert the timestamp to datetime
+df1['timestamp'] = pd.to_datetime(df1['closeTime'], unit='ms')
+
+# Extract relevant columns for time series prediction
+ts_df = df1[['timestamp', 'lastPrice']].rename(columns={'timestamp': 'ds', 'lastPrice': 'y'})
+
+# Normalize the data
+scaler = MinMaxScaler(feature_range=(0, 1))
+scaled_data = scaler.fit_transform(ts_df['y'].values.reshape(-1, 1))
+
+# Prepare the data for LSTM
+training_data_len = int(np.ceil(len(scaled_data) * .95))
+
+train_data = scaled_data[0:int(training_data_len), :]
+x_train = []
+y_train = []
+
+for i in range(60, len(train_data)):
+    x_train.append(train_data[i-60:i, 0])
+    y_train.append(train_data[i, 0])
+
+x_train, y_train = np.array(x_train), np.array(y_train)
+
+x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
+
+# Build the LSTM model
+model = Sequential()
+model.add(LSTM(units=50, return_sequences=True, input_shape=(x_train.shape[1], 1)))
+model.add(LSTM(units=50, return_sequences=False))
+model.add(Dense(units=25))
+model.add(Dense(units=1))
+
+# Compile the model
+model.compile(optimizer='adam', loss='mean_squared_error')
+
+# Train the model
+model.fit(x_train, y_train, batch_size=1, epochs=1)
+
+# Test data set
+test_data = scaled_data[training_data_len - 60:, :]
+
+x_test = []
+y_test = ts_df['y'][training_data_len:].values
+
+for i in range(60, len(test_data)):
+    x_test.append(test_data[i-60:i, 0])
+
+x_test = np.array(x_test)
+
+x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
+
+# Get the model's predicted price values
+predictions = model.predict(x_test)
+predictions = scaler.inverse_transform(predictions)
+
+# Evaluate the model
+rmse = np.sqrt(np.mean(predictions - y_test)**2)
+print(f'Root Mean Squared Error (RMSE): {rmse}')
+
+# Plot the data
+train = ts_df[:training_data_len]
+valid = ts_df[training_data_len:]
+valid['Predictions'] = predictions
+df5 = valid[['y', 'Predictions']]
+
+# Visualize the data
+plt.figure(figsize=(16,8))
+plt.title('Model')
+plt.xlabel('Date')
+plt.ylabel('Close Price USD ($)')
+plt.plot(train['y'])
+plt.plot(valid[['y', 'Predictions']])
+plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
+plt.savefig('files/prediction.png')
+df5.to_csv("files/prediction.csv")
+#plt.show()
+
 app = FastAPI(root_path="/")
 # app.mount("/", StaticFiles(directory="/"), name="/")
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -143,6 +229,11 @@ async def trends():
 @app.get('/each_price_change_catagory')
 async def trends():
     json_data= df4.to_json(orient="index")
+    return 
+
+@app.get('/prediction')
+async def trends():
+    json_data= df5.to_json(orient="index")
     return json_data
 
 @app.get("/gainer_coin_files")
@@ -166,9 +257,3 @@ async def get_csv():
     )
     response.headers["Content-Disposition"] = "attachment; filename=each_price_change_catagory.csv"
     return response
-
-
-
-
-
-
